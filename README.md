@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☕ BrewLoop — Multi-Tenant Cafe Retention & Loyalty SaaS
 
-## Getting Started
+> **Turn every cafe visitor into a returning customer.**
 
-First, run the development server:
+BrewLoop is a complete, production-oriented customer loyalty and retention platform tailored for independent cafes, coffee shops, bakeries, and restaurants.
 
+---
+
+## 🌟 Key Features
+
+1. **Zero-Friction QR Ordering & Table Check-in** (`/cafe/[slug]?table=T01`)
+   - Unique QR codes per table.
+   - Mobile-first web app (no app download required).
+   - Real-time cart, dish customizations, preparation time estimates.
+   - Seamless phone capture with explicit WhatsApp marketing consent.
+
+2. **Digital Loyalty Stamp Card Pass** (`/cafe/[slug]/loyalty`)
+   - Buy 5 coffees, get 1 free (configurable per cafe).
+   - Automated stamp award upon completed order.
+   - Dynamic voucher generation with barista redemption codes.
+   - Neutral Google Reviews CTA.
+
+3. **Barista & Kitchen Display System (KDS)** (`/staff`)
+   - Live order columns: *New Orders*, *Preparing*, *Ready*, *Completed*.
+   - One-tap status updates with audio-visual notifications.
+   - Counter Fast-Stamp tool for walk-in counter sales.
+
+4. **Automated WhatsApp Retention Engine** (`/dashboard/marketing`)
+   - Detects guests with no visit in **21+ days** (inactive) or **45+ days** (lost).
+   - Pre-approved Meta WhatsApp Business Cloud API template integration.
+   - Interactive live phone message preview.
+   - Track delivery, read rates, and footfall recovery.
+
+5. **Owner CRM & Analytics Dashboard** (`/dashboard`)
+   - Real-time revenue, order volume, and repeat customer percentage.
+   - Full customer database with visit frequency, total spend, and CSV export.
+   - Table management and printable QR table stand generator (`/dashboard/tables`).
+
+---
+
+## 🏗️ Architecture & Technology Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | Next.js 16 (App Router) + React 19 + TypeScript |
+| **Styling** | Tailwind CSS v4 (Warm Coffee & Cream Palette) |
+| **Icons & UI** | Lucide React |
+| **Database** | Supabase (PostgreSQL with Row Level Security) |
+| **QR Engine** | Node `qrcode` library |
+| **Messaging** | Meta WhatsApp Business Cloud API |
+| **Deployment** | Vercel |
+
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Install & Run
 ```bash
+cd "/Users/vikaspandey/Documents/Personal Projects/brewloop"
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Available Routes to Test
+- **Landing Page**: [http://localhost:3000](http://localhost:3000)
+- **Customer Table Menu**: [http://localhost:3000/cafe/roasted-bean?table=T01](http://localhost:3000/cafe/roasted-bean?table=T01)
+- **Customer Digital Pass**: [http://localhost:3000/cafe/roasted-bean/loyalty](http://localhost:3000/cafe/roasted-bean/loyalty)
+- **Barista Kitchen Screen**: [http://localhost:3000/staff](http://localhost:3000/staff)
+- **Owner Dashboard**: [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
+- **Customer CRM**: [http://localhost:3000/dashboard/customers](http://localhost:3000/dashboard/customers)
+- **WhatsApp Win-Back**: [http://localhost:3000/dashboard/marketing](http://localhost:3000/dashboard/marketing)
+- **Printable QR Codes**: [http://localhost:3000/dashboard/tables](http://localhost:3000/dashboard/tables)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗄️ Database Migrations
 
-## Learn More
+Database schema and seed files are ready in:
+- `supabase/migrations/20250101000000_initial_schema.sql`
+- `supabase/seed.sql`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Includes multi-tenant tables (`cafes`, `tables`, `categories`, `products`, `orders`, `customers`, `loyalty_programs`, `campaigns`) with strict Row Level Security (RLS) policies.
