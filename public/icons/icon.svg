@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="128" fill="#493326"/>
+  <!-- Steam Curves -->
+  <path d="M190 140c0-30 20-50 20-80s-20-50-20-50" stroke="#F5EFE5" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M256 120c0-30 20-50 20-75s-20-45-20-45" stroke="#D97706" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.8"/>
+  <path d="M322 140c0-30 20-50 20-80s-20-50-20-50" stroke="#F5EFE5" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <!-- Cup Body -->
+  <path d="M120 180h272v150c0 55-45 100-100 100h-72c-55 0-100-45-100-100V180z" fill="#F5EFE5"/>
+  <!-- Cup Handle -->
+  <path d="M392 210h30c33 0 60 27 60 60s-27 60-60 60h-30" stroke="#F5EFE5" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- Coffee Fill -->
+  <path d="M136 210h240v100c0 44-36 80-80 80h-80c-44 0-80-36-80-80V210z" fill="#493326" opacity="0.9"/>
+  <!-- Saucer -->
+  <path d="M90 450h332c16 0 30 14 30 30s-14 30-30 30H90c-16 0-30-14-30-30s14-30 30-30z" fill="#D5C9BD"/>
+</svg>
